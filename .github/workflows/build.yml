@@ -40,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: atomvm-esp32.bin
-        path: /__w/atomvm_m5/atomvm_m5/AtomVM/src/platforms/esp32/build
+        path: AtomVM/src/platforms/esp32/build/atomvm-esp32.bin
 
   build-doc:
     runs-on: ubuntu-latest
