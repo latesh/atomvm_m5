@@ -34,9 +34,10 @@ jobs:
       working-directory: AtomVM/src/platforms/esp32/
       run: |
         . $IDF_PATH/export.sh
+        idf.py set-target esp32s3
         idf.py reconfigure
         idf.py build
-    - name: Archive firmware
+    - name: Archive atomvm-esp32.bin
       uses: actions/upload-artifact@v4
       with:
         name: atomvm-esp32.bin
