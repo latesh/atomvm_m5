@@ -36,6 +36,11 @@ jobs:
         . $IDF_PATH/export.sh
         idf.py reconfigure
         idf.py build
+    - name: Archive firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: atomvm-esp32.bin
+          path: /__w/atomvm_m5/atomvm_m5/AtomVM/src/platforms/esp32/build
 
   build-doc:
     runs-on: ubuntu-latest
