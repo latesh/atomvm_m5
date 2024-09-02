@@ -38,25 +38,18 @@ jobs:
         idf.py set-target esp32s3
         idf.py reconfigure
         idf.py build
-        idf.py size
-    - name: Print component size info with idf.py
-      shell: bash
-      working-directory: AtomVM/src/platforms/esp32/
-      run: |
-        . $IDF_PATH/export.sh
-        idf.py size-components
-    - name: "Create AtomVM image"
-      working-directory: AtomVM/src/platforms/esp32/build
-      run: |
-        ./mkimage.sh
-        ls -l *.img
+    # - name: "Create AtomVM image"
+    #   working-directory: AtomVM/src/platforms/esp32/build
+    #   run: |
+    #     ./mkimage.sh
+    #     ls -l *.img
     - name: Archive atomvm-esp32.bin, bootloader.bin and partition-table.bin
       uses: actions/upload-artifact@v4
       with:
         name: atomvm-esp32-firmware
         path: |
           AtomVM/src/platforms/esp32/build/atomvm-esp32.bin
-          AtomVM/src/platforms/esp32/build/atom*.img
+          AtomVM/src/platforms/esp32/build/atomvm-esp32s3.img
           AtomVM/src/platforms/esp32/build/bootloader/bootloader.bin
           AtomVM/src/platforms/esp32/build/partition_table/partition-table.bin
 
