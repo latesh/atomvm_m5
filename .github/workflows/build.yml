@@ -37,21 +37,14 @@ jobs:
         idf.py set-target esp32s3
         idf.py reconfigure
         idf.py build
-    - name: Archive atomvm-esp32.bin
+    - name: Archive atomvm-esp32.bin, bootloader.bin and partition-table.bin
       uses: actions/upload-artifact@v4
       with:
-        name: atomvm-esp32.bin
-        path: AtomVM/src/platforms/esp32/build/atomvm-esp32.bin
-    - name: Archive bootloader.bin
-      uses: actions/upload-artifact@v4
-      with:
-        name: bootloader.bin
-        path: AtomVM/src/platforms/esp32/build/bootloader/bootloader.bin
-    - name: Archive partition-table.bin
-      uses: actions/upload-artifact@v4
-      with:
-        name: partition-table.bin
-        path: AtomVM/src/platforms/esp32/build/partition_table/partition-table.bin
+        name: atomvm-esp32-firmware.zip
+        path: |
+          AtomVM/src/platforms/esp32/build/atomvm-esp32.bin
+          AtomVM/src/platforms/esp32/build/bootloader/bootloader.bin
+          AtomVM/src/platforms/esp32/build/partition_table/partition-table.bin
 
   build-doc:
     runs-on: ubuntu-latest
