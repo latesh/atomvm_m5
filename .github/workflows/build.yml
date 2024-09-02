@@ -40,7 +40,7 @@ jobs:
     - name: Archive atomvm-esp32.bin, bootloader.bin and partition-table.bin
       uses: actions/upload-artifact@v4
       with:
-        name: atomvm-esp32-firmware.zip
+        name: atomvm-esp32-firmware
         path: |
           AtomVM/src/platforms/esp32/build/atomvm-esp32.bin
           AtomVM/src/platforms/esp32/build/bootloader/bootloader.bin
